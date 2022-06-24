@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ludo game</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        body{
+            /* width: 100vw;
+            height: 100vh; */
+            background-color: #0a3d62;
+        }
+        .container{
+            width: 85%;
+            /* height: 100%; */
+            margin: auto;
+            text-align: center;
+        }
+        
+        .box{
+            /* margin: auto; */
+            border: 2px solid black;
+            text-align: center;
+            width: 34%;
+            /* height: 45%; */
+            display: inline-block;
+            background-color: black;
+            border-radius: 10px;
+        }
+        .box img{
+            width: 100%;
+        }
+        h1{
+            margin: 25px;
+            text-shadow: 4px 2px white;
+            font-size: 6rem;
+            color: #f6b93b;
+        }
+        p{
+            font-size: 2rem;
+            color: #00b894;
+            text-shadow: 1px 1px white;
+        }
+        button{
+            padding: 5px;
+            color: white;
+            background-color: #00b894;
+            border: none;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Start Ludo</h1>
+            <div class="box">
+                <p>Player 1</p>
+                <img src="dice1.jpg" id="img1">
+            </div>
+    
+            <div class="box">
+                <p>Player 2</p>
+                <img src="dice6.jpg" id="img2">
+            </div>
+
+            <div>
+                <button onclick="startgame()">click Me</button>
+            </div>
+    </div>
+
+    <script>
+        
+        function startgame(){
+            let dicenumber=Math.floor(Math.random()*6+1);
+            let dicenumber2=Math.floor(Math.random()*6+1);
+            let changes=`dice${dicenumber}.jpg`;
+            let changes2=`dice${dicenumber2}.jpg`;
+            let img1=document.getElementById("img1");
+            let img2=document.getElementById("img2");
+            
+
+            img1.setAttribute("src",changes);
+            img2.setAttribute("src",changes2);
+
+            if(dicenumber>dicenumber2){
+                document.querySelector("h1").innerHTML="Player 1 Won";
+            }else if(dicenumber<dicenumber2){
+                document.querySelector("h1").innerHTML="Player 2 Won";
+            }else{
+                document.querySelector("h1").innerHTML="Match Draw";
+            }
+        }
+    </script>
+</body>
+</html>
